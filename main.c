@@ -7,6 +7,7 @@
 
 void countAndChooseWord(char chaine[], int *i)
 {
+	int a = 0;
 	int t = 0;
 	FILE* fichier = NULL;
 	int numMot = 0;
@@ -17,10 +18,10 @@ void countAndChooseWord(char chaine[], int *i)
 	{
 		while(fgets(chaine, 40, fichier) != NULL)
 		{
-			*i++;
+			a++;
 		}
-		printf("%d\n", *i);
-		numMot = (rand() % (*i - 0 + 1)) + 0;
+		printf("%d\n", a);
+		numMot = (rand() % (a - 0 + 1)) + 0;
 		printf("%d",numMot);
 		rewind(fichier);
 		while(t < numMot)
@@ -30,6 +31,7 @@ void countAndChooseWord(char chaine[], int *i)
 		}
 		printf("%s", chaine);
 		fclose(fichier);
+		*i = a;
 	}
 	else
 	{
@@ -46,16 +48,14 @@ int main()
 	char motTrouver[40] = "";
 	char maLettre;
 	int life = 10;
-	int nombreDeLettre;
-	char chaine[40] = {0};
 	int i = 0;
 
-	/*motSecret = malloc(nombreDeLettre * sizeof(char));*/
 
 	graphiqueEnter();
-	/*countAndChooseWord(chaine, &i);*/
+	countAndChooseWord(motSecret, &i);
 
-	/*strcpy(motSecret, chaine);*/
+	i += 1;
+
 
 	while(life > 0)
 	{
