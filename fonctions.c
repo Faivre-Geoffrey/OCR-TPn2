@@ -2,6 +2,67 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+void countAndChooseWord(char chaine[], int *i)
+{
+        int a = 0;
+        int t = 0;
+        FILE* fichier = NULL;
+        int numMot = 0;
+        srand(time(NULL));
+        fichier = fopen("fichierDico", "r");
+
+        if(fichier != NULL)
+        {
+                while(fgets(chaine, 40, fichier) != NULL)
+                {
+                        a++;
+                }
+                numMot = (rand() % (a - 0 + 1)) + 0;
+                rewind(fichier);
+                while(t < numMot)
+                {
+                        fgets(chaine, 40, fichier);
+                        t++;
+                }
+                fclose(fichier);
+                *i = a;
+        }
+        else
+        {
+                printf("deso le fichier ne s'ouvre pas");
+        }
+}
+
+void makeMotTrouver(char *motSecret, char *motTrouver)
+{
+        int i = 0;
+        int t = 0;
+        while(motSecret[i])
+        {
+                i++;
+        }
+        while(t < i)
+        {
+                motTrouver[t] = '*';
+                t++;
+        }
+        motTrouver[t] = '\0';
+}
+
+void rmvEnter(char *motSecret)
+{
+        int i = 0;
+        while(motSecret[i])
+        {
+                if(motSecret[i] == '\n')
+                {
+                        motSecret[i] = '\0';
+                        break;
+                }
+                i++;
+        }
+}
+
 
 void graphiqueEnter()
 {

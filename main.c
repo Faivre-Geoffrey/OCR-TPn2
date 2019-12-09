@@ -4,43 +4,6 @@
 #include <time.h>
 #include "fonctions.c"
 
-
-void countAndChooseWord(char chaine[], int *i)
-{
-	int a = 0;
-	int t = 0;
-	FILE* fichier = NULL;
-	int numMot = 0;
-	srand(time(NULL));
-	fichier = fopen("test123", "r");
-
-	if(fichier != NULL)
-	{
-		while(fgets(chaine, 40, fichier) != NULL)
-		{
-			a++;
-		}
-		printf("%d\n", a);
-		numMot = (rand() % (a - 0 + 1)) + 0;
-		printf("%d",numMot);
-		rewind(fichier);
-		while(t < numMot)
-		{
-			fgets(chaine, 40, fichier);
-			t++;
-		}
-		printf("%s", chaine);
-		fclose(fichier);
-		*i = a;
-	}
-	else
-	{
-		printf("deso le fichier ne s'ouvre pas");
-	}
-}
-
-
-
 int main()
 {
 
@@ -53,6 +16,8 @@ int main()
 
 	graphiqueEnter();
 	countAndChooseWord(motSecret, &i);
+	rmvEnter(motSecret);
+	makeMotTrouver(motSecret, motTrouver);
 
 	i += 1;
 
@@ -73,7 +38,7 @@ int main()
 	}
 	if(life == 0)
 	{
-		printf("Game over ^^       lifecounter = %d\n\n", life);
+		printf("\n\nGame over ^^       \n\nsecretword is %s\n", motSecret);
 	}
 }
 
