@@ -66,16 +66,16 @@ void rmvEnter(char *motSecret)
 
 void graphiqueEnter()
 {
-	printf("\n\n     **Welcome to the Hangman games**\n\n");
+	printf("\n\n     ********************************\n     ________________________________\n     **Welcome to the Hangman games**\n     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n     ********************************\n");
 }
 
 char lireCaractere()
 {
-	char caractere = 0;
-	caractere = getchar();
-	caractere = toupper(caractere);
-	while (getchar() != '\n');
-	return caractere;
+        char caractere = 0;
+        caractere = getchar();
+        caractere = toupper(caractere);
+        while(getchar() != '\n');
+        return caractere;
 }
 
 int ft_FindAndReplace(char motSecret[],char motTrouver[], char maLettre)
