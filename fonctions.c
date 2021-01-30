@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+#include "fonctions.h"
 void countAndChooseWord(char chaine[], int *i)
 {
         int a = 0;
@@ -83,7 +80,7 @@ int ft_FindAndReplace(char motSecret[],char motTrouver[], char maLettre)
 	int i = 0;
 	char motTrouverOrigin[100] = {0};
 	strcpy(motTrouverOrigin, motTrouver);
-	
+
 	while(motSecret[i])
 	{
 		if(motSecret[i] == maLettre)

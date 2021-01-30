@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include "fonctions.c"
+#include "fonctions.h"
 
 void ft_retry(int *retry, int *life)
 {
@@ -38,8 +34,8 @@ int main()
 
 	while(life > 0)
 	{
-		
-	
+
+
 		printf("\nmot secret = %s", motTrouver);
 		printf("        lifecounter : %d\n\n", life);
 		printf("tape une lettre : ");
